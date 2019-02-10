@@ -1,6 +1,6 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "react-toastify/dist/ReactToastify.css";
+@import url(https://unpkg.com/react-toastify@latest/dist/ReactToastify.css);
 
 $mai-pink: #ff1493;
 $mai-gray: #e6e6e6;

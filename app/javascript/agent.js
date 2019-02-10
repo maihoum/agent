@@ -19,7 +19,12 @@ const responseBodyWithAuth = res => {
 const displayError = error => {
   const url = error.response.req.url;
   if (!IGNORED_ERROR_URLS.includes(url)) {
-    toast(error.response.body.errors.join(","), {
+    const msg =
+      (error.response.body &&
+        error.response.body.errors &&
+        error.response.body.errors.join(",")) ||
+      "Oops! Something went wrong. Try reloading your browser. It might help. 🤷‍♀️";
+    toast(msg, {
       type: toast.TYPE.ERROR,
       hideProgressBar: true
     });
@@ -42,37 +47,37 @@ const accessTokenPlugin = req => {
 const requests = {
   del: url =>
     superagent
-      .del(`${API_ROOT}${url}`)
+      .del(`${API_ROOT}${url}.json`)
       .on("error", displayError)
       .use(accessTokenPlugin)
       .then(responseBody),
   get: url =>
     superagent
-      .get(`${API_ROOT}${url}`)
+      .get(`${API_ROOT}${url}.json`)
       .on("error", displayError)
       .use(accessTokenPlugin)
       .then(responseBody),
   put: (url, body) =>
     superagent
-      .put(`${API_ROOT}${url}`, body)
+      .put(`${API_ROOT}${url}.json`, body)
       .on("error", displayError)
       .use(accessTokenPlugin)
       .then(responseBody),
   post: (url, body) =>
     superagent
-      .post(`${API_ROOT}${url}`, body)
+      .post(`${API_ROOT}${url}.json`, body)
       .on("error", displayError)
       .use(accessTokenPlugin)
       .then(responseBody),
   getWithAuth: (url, body) =>
     superagent
-      .get(`${API_ROOT}${url}`)
+      .get(`${API_ROOT}${url}.json`)
       .on("error", displayError)
       .use(accessTokenPlugin)
       .then(responseBodyWithAuth),
   postWithAuth: (url, body) =>
     superagent
-      .post(`${API_ROOT}${url}`, body)
+      .post(`${API_ROOT}${url}.json`, body)
       .on("error", displayError)
       .use(accessTokenPlugin)
       .then(responseBodyWithAuth)
@@ -104,9 +109,7 @@ const User = {
 };
 
 const Profile = {
-  follow: username => requests.post(`/profiles/${username}/follow`),
-  get: username => requests.get(`/profiles/${username}`),
-  unfollow: username => requests.del(`/profiles/${username}/follow`)
+  get: username => requests.get(`/profiles/${username}`)
 };
 
 export default {

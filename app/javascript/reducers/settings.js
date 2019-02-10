@@ -10,7 +10,7 @@ export default (state = {}, action) => {
       return {
         ...state,
         inProgress: false,
-        errors: action.error ? action.payload.errors : null
+        errors: action.error ? action.payload && action.payload.errors : null
       };
     case SETTINGS_PAGE_UNLOADED:
       return {};
