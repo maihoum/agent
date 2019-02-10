@@ -1,0 +1,26 @@
+{
+  "name": "maihoum",
+  "private": true,
+  "dependencies": {
+    "@rails/webpacker": "3.5",
+    "babel-preset-react": "^6.24.1",
+    "history": "^4.6.3",
+    "marked": "^0.3.6",
+    "prop-types": "^15.6.2",
+    "react": "^15.5.0",
+    "react-dom": "^15.5.0",
+    "react-redux": "^4.4.8",
+    "react-router": "^4.1.2",
+    "react-router-dom": "^4.1.2",
+    "react-router-redux": "^5.0.0-alpha.6",
+    "react-toastify": "^4.5.2",
+    "redux": "^3.6.0",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-logger": "^3.0.1",
+    "superagent": ">=3.7.0",
+    "superagent-promise": "^1.1.0"
+  },
+  "devDependencies": {
+    "webpack-dev-server": ">=3.1.11"
+  }
+}

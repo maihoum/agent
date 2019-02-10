@@ -1,0 +1,11 @@
+<% env_credentials = Rails.application.config.env_credentials %>
+<%= Rails.env.to_s %>:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  port: 5432
+  sslmode: require
+  database: <%= env_credentials.database[:name] %>
+  username: <%= env_credentials.database[:username] %>
+  password: <%= env_credentials.database[:password] %>
+  host: <%= env_credentials.database[:host] %>

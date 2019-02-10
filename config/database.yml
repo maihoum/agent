@@ -1,0 +1,25 @@
+# Will work out of the box after `docker-compose up`
+default: &default
+  adapter: postgresql
+  encoding: unicode
+
+  host: localhost
+  username: postgres
+
+  # For details on connection pooling, see Rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: maihoum_development
+
+test:
+  <<: *default
+  database: maihoum_test
+
+production:
+  <<: *default
+  database: maihoum_production
+  username: maihoum
+  password: <%= ENV['MAIHOUM_DATABASE_PASSWORD'] %>

@@ -1,0 +1,56 @@
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "react-toastify/dist/ReactToastify.css";
+
+$mai-pink: #ff1493;
+$mai-gray: #e6e6e6;
+$mai-lightpink: #fe71be;
+
+$theme-colors: (
+  "primary": $mai-pink,
+  "secondary": $mai-gray,
+  "info": $mai-lightpink,
+  "warning": #ff8507
+);
+
+@import "bootstrap";
+
+html {
+  color: "#414141";
+}
+
+a#home {
+  color: $mai-pink;
+  font-weight: 700;
+  letter-spacing: 4px;
+  font-size: 18px;
+}
+
+.fullwidthBackgroundImage {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  height: auto;
+  margin: auto;
+  overflow: auto;
+  z-index: -1;
+  filter: opacity(0.5) grayscale(20%);
+}
+
+.nav-link {
+  .avatar {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid $mai-lightpink;
+    z-index: 999;
+    margin-right: 4px;
+  }
+  .username {
+    display: inline-block;
+  }
+}
